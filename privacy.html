@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Privacy Policy – Block Match</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg: #0f0f11;
+      --surface: #18181c;
+      --border: #2a2a32;
+      --accent: #7c6af7;
+      --accent-soft: rgba(124, 106, 247, 0.12);
+      --text: #e8e8ef;
+      --muted: #888899;
+      --heading-font: 'DM Serif Display', Georgia, serif;
+      --body-font: 'DM Sans', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--body-font);
+      font-weight: 300;
+      line-height: 1.75;
+      min-height: 100vh;
+    }
+
+    /* Subtle grid background */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(124,106,247,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(124,106,247,0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 80px 24px 120px;
+    }
+
+    /* Header */
+    .header {
+      margin-bottom: 64px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .game-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent-soft);
+      border: 1px solid rgba(124,106,247,0.3);
+      border-radius: 100px;
+      padding: 6px 16px;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 28px;
+    }
+
+    .game-badge::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    h1 {
+      font-family: var(--heading-font);
+      font-size: clamp(36px, 6vw, 52px);
+      font-weight: 400;
+      line-height: 1.15;
+      color: #fff;
+      margin-bottom: 20px;
+      letter-spacing: -0.02em;
+    }
+
+    .meta {
+      font-size: 13px;
+      color: var(--muted);
+      letter-spacing: 0.02em;
+    }
+
+    /* Sections */
+    .section {
+      margin-bottom: 48px;
+      padding: 32px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.3s ease;
+    }
+
+    .section:hover {
+      border-color: rgba(124,106,247,0.3);
+    }
+
+    .section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), transparent);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .section:hover::before {
+      opacity: 1;
+    }
+
+    .section-number {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+      opacity: 0.8;
+    }
+
+    h2 {
+      font-family: var(--heading-font);
+      font-size: 22px;
+      font-weight: 400;
+      color: #fff;
+      margin-bottom: 16px;
+      letter-spacing: -0.01em;
+    }
+
+    p {
+      font-size: 15px;
+      color: #b0b0c0;
+      margin-bottom: 12px;
+    }
+
+    p:last-child { margin-bottom: 0; }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 12px 0 0;
+    }
+
+    ul li {
+      font-size: 15px;
+      color: #b0b0c0;
+      padding: 8px 0 8px 20px;
+      position: relative;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+
+    ul li:last-child { border-bottom: none; }
+
+    ul li::before {
+      content: '›';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 18px;
+      line-height: 1.4;
+    }
+
+    /* Highlight box */
+    .highlight {
+      background: var(--accent-soft);
+      border: 1px solid rgba(124,106,247,0.25);
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin-top: 16px;
+    }
+
+    .highlight p {
+      color: #c5c0f5;
+      margin: 0;
+      font-size: 14px;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(124,106,247,0.3);
+      transition: border-color 0.2s;
+    }
+
+    a:hover {
+      border-color: var(--accent);
+    }
+
+    /* Contact section */
+    .contact-section {
+      text-align: center;
+      padding: 48px 32px;
+    }
+
+    .contact-section h2 {
+      font-size: 28px;
+      margin-bottom: 12px;
+    }
+
+    .contact-section p {
+      margin-bottom: 24px;
+    }
+
+    .contact-link {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      padding: 12px 28px;
+      border-radius: 100px;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      border: none;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+
+    .contact-link:hover {
+      opacity: 0.85;
+      transform: translateY(-1px);
+      border-bottom: none;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      margin-top: 80px;
+      padding-top: 32px;
+      border-top: 1px solid var(--border);
+      font-size: 13px;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <header class="header">
+      <div class="game-badge">Block Match</div>
+      <h1>Privacy Policy</h1>
+      <p class="meta">Effective date: April 24, 2026 &nbsp;·&nbsp; Last updated: April 24, 2026</p>
+    </header>
+
+    <div class="section">
+      <div class="section-number">01</div>
+      <h2>Overview</h2>
+      <p>Block Match ("the Game") is developed and operated by Youssef. This Privacy Policy explains how we handle information when you play our game on Android.</p>
+      <p>We are committed to being transparent about data practices. Block Match does not require account registration or collect any personally identifiable information directly.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-number">02</div>
+      <h2>Information We Collect</h2>
+      <p>Block Match itself does not collect, store, or transmit any personal data. However, the third-party advertising SDK integrated into the game may collect certain information automatically:</p>
+      <ul>
+        <li>Device identifiers (Advertising ID, device model, OS version)</li>
+        <li>IP address and approximate location (country/region level)</li>
+        <li>App usage and interaction data for ad targeting</li>
+        <li>Network information (carrier, connection type)</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="section-number">03</div>
+      <h2>Advertising – Unity Ads / LevelPlay</h2>
+      <p>Block Match uses Unity Ads (via IronSource LevelPlay) to display advertisements. This SDK may collect and process data to serve relevant ads and measure ad performance.</p>
+      <div class="highlight">
+        <p>Unity's data collection and usage is governed by their own privacy policies. We encourage you to review them:</p>
+      </div>
+      <ul>
+        <li><a href="https://unity.com/legal/privacy-policy" target="_blank">Unity Privacy Policy</a></li>
+        <li><a href="https://www.is.com/privacy-policy/" target="_blank">IronSource / LevelPlay Privacy Policy</a></li>
+      </ul>
+      <p style="margin-top: 16px;">You can opt out of personalized advertising at any time through your device settings under <strong>Google Settings → Ads → Opt out of Ads Personalization</strong>.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-number">04</div>
+      <h2>Data We Do Not Collect</h2>
+      <p>To be clear, Block Match does not collect:</p>
+      <ul>
+        <li>Your name, email address, or any contact information</li>
+        <li>Account credentials or passwords</li>
+        <li>Payment or financial information</li>
+        <li>Precise GPS location</li>
+        <li>Photos, microphone, or camera data</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="section-number">05</div>
+      <h2>Children's Privacy</h2>
+      <p>Block Match is not directed at children under the age of 13. We do not knowingly collect personal information from children. If you believe a child has provided personal data through the game, please contact us and we will take appropriate steps.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-number">06</div>
+      <h2>Data Retention & Security</h2>
+      <p>Since Block Match does not collect personal data directly, we have no personal data to retain or delete. Any data collected by third-party SDKs (Unity Ads / LevelPlay) is managed according to their respective retention policies.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-number">07</div>
+      <h2>Changes to This Policy</h2>
+      <p>We may update this Privacy Policy from time to time. Any changes will be reflected on this page with an updated effective date. Continued use of the game after changes are posted constitutes your acceptance of the revised policy.</p>
+    </div>
+
+    <div class="section contact-section">
+      <h2>Questions?</h2>
+      <p class="muted">If you have any questions about this Privacy Policy or our data practices, feel free to reach out.</p>
+      <a href="mailto:yastbx@gmail.com" class="contact-link">Contact Us</a>
+    </div>
+
+    <footer>
+      <p>© 2026 Block Match · All rights reserved</p>
+    </footer>
+
+  </div>
+</body>
+</html>
